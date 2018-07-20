@@ -1,0 +1,100 @@
+ <head>
+        <title>Online Quiz</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+        <script src="result.js"></script>
+        <link rel="stylesheet" href="style.css"></script>
+    </head>
+
+    <nav class="navbar navbar-inverse" style="background-color:	#00356B">
+        <div class="container-fluid" style="background-color:	#00356B">
+        <div class="navbar-header">
+        <b><a class="navbar-brand" href="#" style="color:white; font-size:26px"><center>Online Quiz</center></a></b>
+        </div>
+        </div>
+    </nav>
+<br><br>
+    <body style="background-color:lightblue">
+<input type="text" id="adminid" placeholder="Enter UserId" name="adminid"><br>
+<button class="button button1" onclick="myFunction()">Submit</button><br><br><br><br>
+
+<p class="greeting-key">User Id</p>
+<p class="greeting-data">Score</p><br>
+<p class="greeting-key1">User Id</p>
+<p class="greeting-data1">Score</p><br>
+<p class="greeting-key2">User Id</p>
+<p class="greeting-data2">Score</p><br>
+<p class="greeting-key3">User Id</p>
+<p class="greeting-data3">Score</p><br>
+<p class="greeting-key4">User Id</p>
+<p class="greeting-data4">Score</p><br>
+<p class="greeting-key5">User Id</p>
+<p class="greeting-data5">Score</p><br>
+<p class="greeting-key6">User Id</p>
+<p class="greeting-data6">Score</p><br>
+<p class="greeting-key7">User Id</p>
+<p class="greeting-data7">Score</p><br>
+<p class="greeting-key8">User Id</p>
+<p class="greeting-data8">Score</p><br>
+<p class="greeting-key9">User Id</p>
+<p class="greeting-data9">Score</p><br>
+    </body>
+  <script>
+            function myFunction(){
+                 var adminid = (document.getElementById("adminid").value);
+                 if(adminid == "user@test.com"){
+                 document.location.href="index.html";
+                }
+                else if(adminid == "admin@test.com"){
+                        var score = {key: "shraddha"};
+                        $.ajax({
+          type: 'POST',
+          url: "http://localhost:3001/getscore",
+          data: JSON.stringify(score),
+          contentType: "application/json;charset=utf-8",
+           success: function(data) {
+                $('.greeting-key').append(data.result.response[0].key);
+                $('.greeting-data').append(data.result.response[0].data);
+
+                $('.greeting-key1').append(data.result.response[1].key);
+                $('.greeting-data1').append(data.result.response[1].data); 
+
+                 $('.greeting-key2').append(data.result.response[2].key); 
+                 $('.greeting-data2').append(data.result.response[2].data);
+
+                 $('.greeting-key3').append(data.result.response[3].key); 
+                $('.greeting-data3').append(data.result.response[3].data);
+
+                 $('.greeting-key4').append(data.result.response[4].key);
+                 $('.greeting-data4').append(data.result.response[4].data);
+
+                 $('.greeting-key5').append(data.result.response[5].key);
+                 $('.greeting-data5').append(data.result.response[5].data);
+
+                 $('.greeting-key6').append(data.result.response[6].key);
+                 $('.greeting-data6').append(data.result.response[6].data);
+
+                 $('.greeting-key7').append(data.result.response[7].key);
+                $('.greeting-data7').append(data.result.response[7].data);
+
+                 $('.greeting-key8').append(data.result.response[8].key);
+                 $('.greeting-data8').append(data.result.response[8].data);
+
+                $('.greeting-key9').append(data.result.response[9].key);
+                $('.greeting-data9').append(data.result.response[9].data);            
+           },
+           failure: function( err ) {
+               console.log("err",err)
+           }
+          })
+            document.URL="result.html";
+                }
+                else{
+                    alert("You are not admin or user")
+                }
+               
+            }
+        </script>

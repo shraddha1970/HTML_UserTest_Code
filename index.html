@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online Quiz</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+        <script src="test.js"></script>
+        <link rel="stylesheet" href="style.css"></script>
+    </head>
+
+    <nav class="navbar navbar-inverse" style="background-color:	#00356B">
+        <div class="container-fluid" style="background-color:	#00356B">
+        <div class="navbar-header">
+        <b><a class="navbar-brand" href="#" style="color:white; font-size:26px; margin: -4px 500px;"><center>Online Quiz</center></a></b>
+        </div>
+        </div>
+        <button class="logout" onclick="logout()">Logout</button>
+    </nav>
+
+    <body style="background-color:lightblue">
+        <div>
+             &nbsp;&nbsp;&nbsp;<input type="text" id="uesrid" placeholder="Enter UserId" name="uesrid"><br>
+             <!--Display question and options-->
+            <b><p class="greeting-question10"> </p></b>
+            <p class="greeting-option10">&nbsp;&nbsp;&nbsp;<input type="radio" name="test1" onclick="myFunction1(this.value)" value="a">&nbsp;</p>        
+            <p class="greeting-option20">&nbsp;&nbsp;&nbsp;<input type="radio" name="test1" onclick="myFunction1(this.value)" value="b">&nbsp;</p>
+            <p class="greeting-option30">&nbsp;&nbsp;&nbsp;<input type="radio" name="test1" onclick="myFunction1(this.value)" value="c">&nbsp;</p>
+            <p class="greeting-option40">&nbsp;&nbsp;&nbsp;<input type="radio" name="test1" onclick="myFunction1(this.value)" value="d">&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;<input type="text" id="result1" style="display:none"><br>
+
+            <b><p class="greeting-question11"></p></b>
+            <p class="greeting-option11">&nbsp;&nbsp;&nbsp;<input type="radio" name="test2" onclick="myFunction2(this.value)" value="a">&nbsp;</p>        
+            <p class="greeting-option21">&nbsp;&nbsp;&nbsp;<input type="radio" name="test2" onclick="myFunction2(this.value)" value="b">&nbsp;</p>
+            <p class="greeting-option31">&nbsp;&nbsp;&nbsp;<input type="radio" name="test2" onclick="myFunction2(this.value)" value="c">&nbsp;</p>
+            <p class="greeting-option41">&nbsp;&nbsp;&nbsp;<input type="radio" name="test2" onclick="myFunction2(this.value)" value="d">&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;<input type="text" id="result2" style="display:none"><br>
+
+            <b><p class="greeting-question22"></p></b>
+            <p class="greeting-option12">&nbsp;&nbsp;&nbsp;<input type="radio" name="test3" onclick="myFunction3(this.value)" value="a">&nbsp;</p>        
+            <p class="greeting-option22">&nbsp;&nbsp;&nbsp;<input type="radio" name="test3" onclick="myFunction3(this.value)" value="b">&nbsp;</p>
+            <p class="greeting-option32">&nbsp;&nbsp;&nbsp;<input type="radio" name="test3" onclick="myFunction3(this.value)" value="c">&nbsp;</p>
+            <p class="greeting-option42">&nbsp;&nbsp;&nbsp;<input type="radio" name="test3" onclick="myFunction3(this.value)" value="d">&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;<input type="text" id="result3" style="display:none"><br>
+
+            <b><p class="greeting-question33"></p></b>
+            <p class="greeting-option13">&nbsp;&nbsp;&nbsp;<input type="radio" name="test4" onclick="myFunction4(this.value)" value="a">&nbsp;</p>        
+            <p class="greeting-option23">&nbsp;&nbsp;&nbsp;<input type="radio" name="test4" onclick="myFunction4(this.value)" value="b">&nbsp;</p>
+            <p class="greeting-option33">&nbsp;&nbsp;&nbsp;<input type="radio" name="test4" onclick="myFunction4(this.value)" value="c">&nbsp;</p>
+            <p class="greeting-option43">&nbsp;&nbsp;&nbsp;<input type="radio" name="test4" onclick="myFunction4(this.value)" value="d">&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;<input type="text" id="result4" style="display:none"><br>
+
+            <b><p class="greeting-question44"></p></b>
+            <p class="greeting-option14">&nbsp;&nbsp;&nbsp;<input type="radio" name="test5" onclick="myFunction5(this.value)" value="a">&nbsp;</p>        
+            <p class="greeting-option24">&nbsp;&nbsp;&nbsp;<input type="radio" name="test5" onclick="myFunction5(this.value)" value="b">&nbsp;</p>
+            <p class="greeting-option34">&nbsp;&nbsp;&nbsp;<input type="radio" name="test5" onclick="myFunction5(this.value)" value="c">&nbsp;</p>
+            <p class="greeting-option44">&nbsp;&nbsp;&nbsp;<input type="radio" name="test5" onclick="myFunction5(this.value)" value="d">&nbsp;</p>
+            &nbsp;&nbsp;&nbsp;<input type="text" id="result5" style="display:none"><br><br>
+
+            &nbsp;&nbsp;&nbsp;<button class="button button1" onclick="myFunction()">Submit</button>
+          
+        <!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>  
+    Your total score is <p class="greeting-totalscore"></p>
+    out of <p class="greeting-total"></p> 
+  </div>
+</div>
+<script>
+//logout action button
+function logout(){
+     document.location.href="admin.html";
+}
+//Select option from radio button function    
+function myFunction1(test1) {
+    let number1 = 0;
+    if(test1 === "b"){
+         number1++
+    }
+    document.getElementById("result1").value = number1;
+}
+function myFunction2(test2) {
+    let number2 = 0;
+    if(test2 === "d"){
+    number2++
+    }
+    document.getElementById("result2").value = number2;
+}
+function myFunction3(test3) {   
+    let number3 = 0;
+    if(test3 === "a"){
+    number3++
+    }
+    document.getElementById("result3").value = number3;
+}
+function myFunction4(test4) {
+    let number4 = 0;
+    if(test4 === "d"){
+    number4++
+    }
+    document.getElementById("result4").value = number4;
+}
+function myFunction5(test5) {
+    let number5 = 0;
+    if(test5 === "c"){
+    number5++
+    }
+    document.getElementById("result5").value = number5;
+}
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal ans show total score
+function myFunction() {
+    modal.style.display = "block";
+    var total1 = Number(document.getElementById("result1").value);
+    var total2 = Number(document.getElementById("result2").value);
+    var total3 = Number(document.getElementById("result3").value);
+    var total4 = Number(document.getElementById("result4").value);
+    var total5 = Number(document.getElementById("result5").value);
+    var total = JSON.stringify(total1 + total2 + total3 + total4 + total5)
+    $('.greeting-totalscore').append(total);
+
+    var uesrid = (document.getElementById("uesrid").value);
+
+    var jsonObjects = {key: uesrid, 
+                       score: total 
+                      };
+   // Ajax call to store Score in multichain                   
+   $.ajax({
+          type: 'POST',
+          url: "http://localhost:3001/saveScore",
+          data: JSON.stringify(jsonObjects),
+          contentType: "application/json;charset=utf-8",
+           success: function(data) {
+               console.log("data",data)
+           },
+           failure: function( err ) {
+               console.log("err",err)
+           }
+          })
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";    
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+        </script>
+    </div>
+</body>
+</html>
